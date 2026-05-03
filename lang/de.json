@@ -1,0 +1,17 @@
+{
+    "Forecast": {
+        "PluginName": "Forecast",
+        "PluginDescription": "Sagt mit Hilfe der Prophet-Bibliothek zukünftige Besucherzahlen je Website voraus.",
+        "WidgetName": "Forecast",
+        "ReportName": "Forecast Bericht",
+        "ColumnUniqueVisitors": "Eindeutige Besucher",
+        "ColumnVisits": "Besuche",
+        "InsufficientDataForCalculation": "Es fehlen noch einige Daten für die Berechnung",
+        "SettingPythonBinPathTitle": "Pfad zur Python-Binary",
+        "SettingPythonBinPathDescription": "Pfad zur Python-Executable festlegen.",
+        "SettingApiKeyTitle": "API-Key",
+        "SettingApiKeyDescription": "API-Key von menotec. Kontaktiere info@menotec.de, um einen API-Key zu erhalten.",
+        "SettingApiHostnameTitle": "API-Hostname",
+        "SettingApiHostnameDescription": "Trage den menotec-Hostname ein (z. B. http://forecast.localhost). Kontaktiere info@menotec.de, um den Hostname zu erhalten."
+    }
+}

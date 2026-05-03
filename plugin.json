@@ -1,6 +1,6 @@
 {
   "name": "Forecast",
-  "version": "5.7.3",
+  "version": "5.7.4",
   "description": "This Matomo plugin adds a future visits forecast based on the prophet time‑series library",
   "keywords": ["forecast"],
   "license": "GPL-3.0+",

@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Piwik\Plugins\Forecast\Reports;
 
+use Piwik\Piwik;
 use Piwik\Plugin\Report;
 use Piwik\Plugin\ViewDataTable;
 
@@ -25,7 +26,7 @@ class ForecastReport extends Report
     {
         parent::init();
 
-        $this->name          = 'Forecast Report';
+        $this->name          = Piwik::translate('Forecast_ReportName');
         $this->categoryId    = 'Forecast';
         $this->subcategoryId = 'General_Overview';
 
@@ -49,6 +50,6 @@ class ForecastReport extends Report
         $view->config->show_table_all_columns    = false;
         $view->config->show_exclude_low_population = false;
         $view->config->columns_to_display        = ['label', 'nb_visits'];
-        $view->config->addTranslation('nb_visits', 'Visits');
+        $view->config->addTranslation('nb_visits', Piwik::translate('Forecast_ColumnVisits'));
     }
 }

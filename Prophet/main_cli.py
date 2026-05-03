@@ -176,8 +176,9 @@ def _load_or_train(
     action = "Retraining" if retrain else "No saved model found – training"
     logger.info("%s Prophet model …", action)
     model = Prophet(
-        daily_seasonality=True,
-        yearly_seasonality=True,
+        daily_seasonality=False,
+        weekly_seasonality="auto",
+        yearly_seasonality="auto",
         interval_width=interval_width,
     )
     model.add_country_holidays(country_name=country)

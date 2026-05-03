@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Piwik\Plugins\Forecast\Tests\Unit\Widgets;
 
 use PHPUnit\Framework\TestCase;
+use Piwik\Piwik;
 use Piwik\Plugins\Forecast\Widgets\ForecastWidget;
 use Piwik\Widget\WidgetConfig;
 
@@ -20,7 +21,7 @@ class ForecastWidgetTest extends TestCase
 
         $config->expects(self::once())
             ->method('setName')
-            ->with('Forecast');
+            ->with(Piwik::translate('Forecast_WidgetName'));
 
         ForecastWidget::configure($config);
     }

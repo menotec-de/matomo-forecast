@@ -23,7 +23,7 @@ class APITest extends TestCase
         $repoProp->setValue($api, $repository);
 
         try {
-            $api->getForecastReport(1, 'day', 'today');
+            $api->getForecastReport(1);
             self::fail('Expected an exception due to missing authentication context');
         } catch (\Throwable $e) {
             self::assertTrue(true);
@@ -37,13 +37,9 @@ class APITest extends TestCase
         self::assertTrue($method->isPublic());
 
         $params = $method->getParameters();
-        self::assertCount(3, $params);
+        self::assertCount(1, $params);
         self::assertSame('idSite', $params[0]->getName());
         self::assertSame('int', $params[0]->getType()->getName());
-        self::assertSame('period', $params[1]->getName());
-        self::assertSame('string', $params[1]->getType()->getName());
-        self::assertSame('date', $params[2]->getName());
-        self::assertSame('string', $params[2]->getType()->getName());
     }
 
     public function testClassExtendsPluginApi(): void

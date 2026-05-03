@@ -149,10 +149,10 @@ Once forecasts are generated (locally or via API), you can:
 - Access the data programmatically via the Matomo HTTP API:
 
   ```
-  ?module=API&method=Forecast.getForecastReport&idSite=1&period=day&date=today
+  ?module=API&method=Forecast.getForecastReport&idSite=1
   ```
 
-The API returns a `DataTable` with:
+Optional global query parameters such as `period` and `date` may still appear on the URL (Matomo strips them before invoking the method); they do not filter this report. The API returns a `DataTable` with:
 
 | Column | Description |
 |--------|-------------|

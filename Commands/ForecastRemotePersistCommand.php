@@ -75,9 +75,7 @@ class ForecastRemotePersistCommand extends ForecastBaseCommand
 
         foreach ($siteIds as $siteId) {
             $visitsJson = $this->formatVisitsForProphet(
-                $this->visitRepository->fetchDays($startDate, $endDate, $siteId),
-                $startDate,
-                $endDate
+                $this->visitRepository->fetchDays($startDate, $endDate, $siteId)
             );
 
             $response = $this->forecastApiCommandService->persist($visitsJson, $siteId);
