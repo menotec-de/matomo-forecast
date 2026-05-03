@@ -19,10 +19,10 @@ use RuntimeException;
 
 class ForecastApiCommandService
 {
-    private const CURL_TIMEOUT_SECONDS    = 50;
+    private const CURL_TIMEOUT_SECONDS     = 50;
     private const CURL_CONNECT_TIMEOUT_SEC = 20;
-    private const HTTP_OK_MIN             = 200;
-    private const HTTP_OK_MAX             = 299;
+    private const HTTP_OK_MIN              = 200;
+    private const HTTP_OK_MAX              = 299;
 
     /** @var string */
     private $apiHostname;

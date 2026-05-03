@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Piwik\Plugins\Forecast\Tests\Unit\Reports;
 
 use PHPUnit\Framework\TestCase;
+use Piwik\Piwik;
 use Piwik\Plugins\Forecast\Reports\ForecastReport;
 
 class ForecastReportTest extends TestCase
@@ -44,7 +45,7 @@ class ForecastReportTest extends TestCase
         $order         = $reflection->getProperty('order');
         $order->setAccessible(true);
 
-        self::assertSame('Forecast Report', $name->getValue($report));
+        self::assertSame(Piwik::translate('Forecast_ReportName'), $name->getValue($report));
         self::assertSame('Forecast', $categoryId->getValue($report));
         self::assertSame('General_Overview', $subcategoryId->getValue($report));
         self::assertSame('Forecast', $module->getValue($report));

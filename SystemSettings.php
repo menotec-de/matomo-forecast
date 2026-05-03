@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Piwik\Plugins\Forecast;
 
+use Piwik\Piwik;
 use Piwik\Settings\FieldConfig;
 
 class SystemSettings extends \Piwik\Settings\Plugin\SystemSettings
@@ -44,9 +45,9 @@ class SystemSettings extends \Piwik\Settings\Plugin\SystemSettings
     private function createPythonBinPathSetting(): \Piwik\Settings\Plugin\SystemSetting
     {
         return $this->makeSetting('pythonBinPath', 'python3', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
-            $field->title       = 'Path to python bin';
+            $field->title       = Piwik::translate('Forecast_SettingPythonBinPathTitle');
             $field->uiControl   = FieldConfig::UI_CONTROL_TEXT;
-            $field->description = 'Set the path to the python executable';
+            $field->description = Piwik::translate('Forecast_SettingPythonBinPathDescription');
         });
     }
 
@@ -58,9 +59,9 @@ class SystemSettings extends \Piwik\Settings\Plugin\SystemSettings
     private function createApiKeySettings(): \Piwik\Settings\Plugin\SystemSetting
     {
         return $this->makeSetting('apiKey', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
-            $field->title       = 'API Key';
+            $field->title       = Piwik::translate('Forecast_SettingApiKeyTitle');
             $field->uiControl   = FieldConfig::UI_CONTROL_PASSWORD;
-            $field->description = 'API key from menotec. Contact via info@menotec.de for an API key.';
+            $field->description = Piwik::translate('Forecast_SettingApiKeyDescription');
         });
     }
 
@@ -72,9 +73,9 @@ class SystemSettings extends \Piwik\Settings\Plugin\SystemSettings
     private function createApiHostnameSettings(): \Piwik\Settings\Plugin\SystemSetting
     {
         return $this->makeSetting('apiHostname', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
-            $field->title       = 'API hostname';
+            $field->title       = Piwik::translate('Forecast_SettingApiHostnameTitle');
             $field->uiControl   = FieldConfig::UI_CONTROL_TEXT;
-            $field->description = 'Enter the menotec hostname (e.g. http://forecast.localhost). Contact via info@menotec.de for hostname.';
+            $field->description = Piwik::translate('Forecast_SettingApiHostnameDescription');
         });
     }
 }

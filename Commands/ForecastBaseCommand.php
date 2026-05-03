@@ -75,12 +75,10 @@ abstract class ForecastBaseCommand extends ConsoleCommand
      * Transforms raw visit rows into the JSON format expected by Prophet and fills gaps with zero-visit days.
      *
      * @param array  $visits    Visit rows from the database (each row must have 'date' and 'unique_visits').
-     * @param string $startDate Inclusive start date in Y-m-d format.
-     * @param string $endDate   Inclusive end date in Y-m-d format.
      * @return string JSON-encoded array of Prophet input records (['ds', 'y']).
      * @throws \Exception
      */
-    protected function formatVisitsForProphet(array $visits, string $startDate, string $endDate): string
+    protected function formatVisitsForProphet(array $visits): string
     {
         $visitsTransformed = array_map(function ($item) {
             return [
@@ -88,23 +86,6 @@ abstract class ForecastBaseCommand extends ConsoleCommand
                 'y'  => $item['unique_visits'],
             ];
         }, $visits);
-
-        // Fill with missing dates so Prophet receives a contiguous series.
-        $startDate = new \DateTime($startDate);
-        $endDate   = new \DateTime($endDate);
-        $endDate->modify('+1 day');
-        $period = new \DatePeriod($startDate, new \DateInterval('P1D'), $endDate);
-
-        foreach ($period as $date) {
-            $day = $date->format('Y-m-d');
-
-            if (!isset($visitsTransformed[$day])) {
-                $visitsTransformed[$day] = [
-                    'ds' => $day,
-                    'y'  => 0,
-                ];
-            }
-        }
 
         ksort($visitsTransformed);
 

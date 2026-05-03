@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Piwik\Plugins\Forecast\Widgets;
 
+use Piwik\Piwik;
 use Piwik\Plugins\Forecast\Controller;
 use Piwik\Widget\Widget;
 use Piwik\Widget\WidgetConfig;
@@ -26,7 +27,7 @@ class ForecastWidget extends Widget
     public static function configure(WidgetConfig $config): void
     {
         $config->setCategoryId('General_Visitors');
-        $config->setName('Forecast');
+        $config->setName(Piwik::translate('Forecast_WidgetName'));
     }
 
     /**

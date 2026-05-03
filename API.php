@@ -33,15 +33,13 @@ class API extends \Piwik\Plugin\API
     }
 
     /**
-     * Returns the forecast report for a given site, period, and date.
+     * Returns the full stored forecast report for a given site.
      *
-     * @param int    $idSite Matomo site ID.
-     * @param string $period Report period (e.g. 'day', 'month').
-     * @param string $date   Report date string (e.g. 'today', '2026-01-01').
+     * @param int $idSite Matomo site ID.
      * @return DataTable
      * @throws \Exception
      */
-    public function getForecastReport(int $idSite, string $period, string $date): DataTable
+    public function getForecastReport(int $idSite): DataTable
     {
         Piwik::checkUserHasViewAccess($idSite);
 
